@@ -1,6 +1,5 @@
 public class ComputerTrainer extends PokemonTrainer
 {
-    // private constants
     // Possible pokemon names and move names to generate random Pokemon
     private static final String[] POKEMON_NAMES = {"Pikachu", "Bulbasaur", "Charmander", "Squirtle"};
 	private static final String[] MOVE_NAMES = {"Tailwhip", "Bodyslam", "Splash", "Shock"};
@@ -10,17 +9,13 @@ public class ComputerTrainer extends PokemonTrainer
 	
 	private PokemonImages images = new PokemonImages();
 
-    // Write your ComputerTrainer class here!
-    
-    // Write a Constructor that sets the name of the ComputerTrainer
-    // and adds 2 randomly generated Pokemon to itself
+    //constructor that sets name and makes two new pokemon 
     public ComputerTrainer(String name)
     {
         super(name);
         addRandomPokemon();
         addRandomPokemon();
     }
-    
     /*
      * Adds a randomly generated Pokemon to this ComputerTrainer's
      * collection of Pokemon. A ComputerTrainer can only have 2
@@ -38,14 +33,14 @@ public class ComputerTrainer extends PokemonTrainer
     }
     
     // Returns a Move randomly chosen from the set of Moves
-    // that this trainer's current Pokemon knows.
-    // If all Pokemon have fainted, returns null.
     public Move chooseRandomMove()
     {
-        if(hasLost()){ return null;}
+        if(hasLost())
+	{
+	return null;
+	}
         Pokemon current = getNextPokemon();
         
         return current.getMoves().get(0);
     }
-    
 }
